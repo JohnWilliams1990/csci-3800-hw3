@@ -1,0 +1,95 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW3",
+		"_postman_id": "3d0008bf-0d07-5645-b737-e7b9ea640f94",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://johnwilliams-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"var token = \"Authorization: Bearer <\";",
+							"token += jsonData.access_token;",
+							"token +=\">\"",
+							"//var token = jsonData.access_token;",
+							"//console.log(token);",
+							"",
+							"",
+							"postman.setEnvironmentVariable(\"token\", token);",
+							"",
+							"var defaultToken = jsonData.access_token;",
+							"",
+							"postman.setEnvironmentVariable(\"defaultToken\", defaultToken);",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://johnwilliams-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+				"method": "POST",
+				"header": [
+					{
+						"key": "//Authorization",
+						"value": ":",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Content-Type",
+							"value": "application/x-www-form-urlencoded",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "zvGjYgEE9gARGCpE48A7QZEFdpvypJOp",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "CmeGHxLGXXDU3ThH",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://johnwilliams-test.apigee.net/hw3/v1/oauth",
+			"request": {
+				"url": "http://johnwilliams-test.apigee.net/hw3/v1/oauth",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
