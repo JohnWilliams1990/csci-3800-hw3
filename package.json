@@ -1,0 +1,16 @@
+{
+  "name": "hw3",
+  "version": "1.0.0",
+  "description": "HW3 csci 3600",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Williams",
+  "license": "ISC",
+  "dependencies": {
+    "avault": "^0.1.17",
+    "express": "^4.14.1",
+    "github": "^9.1.0"
+  }
+}
